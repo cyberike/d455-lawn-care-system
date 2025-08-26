@@ -1,0 +1,38 @@
+D455 Lawn Care Detection Performance Report
+==================================================
+
+Evaluation Date: 2025-08-25 08:44:40
+Duration: 20.0s
+
+OVERALL PERFORMANCE
+--------------------
+Overall Score: 35.0/100 (Grade: F)
+Grass Detection: 70.0/100
+Obstacle Detection: 0.0/100
+
+GRASS DETECTION ANALYSIS
+-------------------------
+Messages Received: 736
+Detection Rate: 38.1 Hz
+Average Coverage: 0.2%
+Coverage Variance: 0.00
+Consistency Score: 100.0/100
+
+OBSTACLE DETECTION ANALYSIS
+----------------------------
+Messages Received: 0
+Detection Rate: 0.0 Hz
+Average Obstacles: 0.0
+Detection Consistency: 0.0/100
+
+SYSTEM PERFORMANCE
+------------------
+Total Messages: 736
+Evaluation Duration: 20.0s
+
+TUNING RECOMMENDATIONS
+----------------------
+• Decrease grass detection rate for better performance
+• Increase obstacle detection rate
+• Inconsistent obstacle detection - review depth thresholds
+• No obstacle detection messages received - check node connectivity

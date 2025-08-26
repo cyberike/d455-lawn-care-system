@@ -1,0 +1,18 @@
+# Service to set mowing pattern for autonomous lawn mowing
+
+# Request
+string pattern_type        # Type of pattern: "spiral", "zigzag", "perimeter_first", "random"
+float32 stripe_width      # Width of mowing stripes in meters
+float32 overlap_percentage # Overlap between adjacent stripes (0-100)
+geometry_msgs/Polygon boundary  # Lawn boundary polygon
+geometry_msgs/Point[] obstacles # Known obstacle positions to avoid
+bool respect_grass_height # Whether to adjust pattern based on grass height
+float32 cutting_height    # Desired cutting height in meters
+
+---
+# Response  
+bool success             # Whether pattern was set successfully
+string message          # Status message
+nav_msgs/Path planned_path    # The generated mowing path
+float32 estimated_time   # Estimated mowing time in minutes
+float32 estimated_area   # Area to be mowed in square meters

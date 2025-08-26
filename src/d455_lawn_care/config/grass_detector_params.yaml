@@ -1,0 +1,17 @@
+simple_grass_detector:
+  ros__parameters:
+    # HSV Color Range for Grass Detection (tuned for outdoor conditions)
+    simple_grass_detector:
+      hue_min: 40        # Lower hue bound (green range)
+      hue_max: 80        # Upper hue bound (green range)  
+      sat_min: 40        # Minimum saturation (avoid washed out colors)
+      sat_max: 255       # Maximum saturation
+      val_min: 40        # Minimum brightness (avoid shadows)
+      val_max: 255       # Maximum brightness
+      
+      # Processing Parameters
+      gaussian_blur_kernel: 5     # Blur kernel size for noise reduction
+      morphology_kernel: 3        # Morphological operations kernel size
+      detection_rate: 10.0        # Detection frequency (Hz)
+      coverage_threshold: 30.0    # Good grass coverage percentage threshold
+      log_threshold: 10.0         # Minimum coverage to log detections

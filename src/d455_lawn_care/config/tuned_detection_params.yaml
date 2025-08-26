@@ -1,0 +1,40 @@
+simple_grass_detector:
+  ros__parameters:
+    
+    # Simple Grass Detector Parameters
+    simple_grass_detector:
+      # HSV Color Range for Grass Detection (tuned for outdoor conditions)
+      hue_min: 40        # Lower hue bound (green range)
+      hue_max: 80        # Upper hue bound (green range)  
+      sat_min: 40        # Minimum saturation (avoid washed out colors)
+      sat_max: 255       # Maximum saturation
+      val_min: 40        # Minimum brightness (avoid shadows)
+      val_max: 255       # Maximum brightness
+      
+      # Processing Parameters
+      gaussian_blur_kernel: 5     # Blur kernel size for noise reduction
+      morphology_kernel: 3        # Morphological operations kernel size
+      detection_rate: 10.0        # Detection frequency (Hz)
+      coverage_threshold: 30.0    # Good grass coverage percentage threshold
+      log_threshold: 10.0         # Minimum coverage to log detections
+      
+    # Simple Obstacle Detector Parameters  
+    simple_obstacle_detector:
+      # Distance Thresholds
+      min_obstacle_height: 0.10         # 10cm minimum obstacle height
+      max_detection_distance: 10.0      # 10m maximum detection range
+      min_detection_distance: 0.3       # 30cm minimum detection range
+      ground_plane_threshold: 0.05      # 5cm ground plane tolerance
+      min_cluster_size: 50              # Minimum pixels for valid obstacle
+      
+      # Processing Parameters
+      detection_rate: 15.0              # Detection frequency (Hz)  
+      ground_region_ratio: 0.6          # Bottom portion used for ground estimation
+      close_obstacle_threshold: 2.0     # Distance considered "close" (meters)
+      medium_distance_threshold: 5.0    # Medium distance threshold (meters)
+      
+      # Visualization
+      marker_lifetime: 1.0              # RViz marker lifetime (seconds)
+      marker_alpha: 0.7                 # Marker transparency
+      min_marker_size: 0.1              # Minimum marker dimension (meters)
+      fixed_marker_height: 0.2          # Fixed height for visualization markers

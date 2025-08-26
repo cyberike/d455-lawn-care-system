@@ -1,0 +1,130 @@
+# D455 Lawn Care Configuration Parameters
+# Optimized settings for grass detection and obstacle avoidance
+
+grass_detector:
+  ros__parameters:
+    # HSV color range for grass detection (outdoor optimized)
+    grass_color_hue_min: 40          # Lower green hue bound
+    grass_color_hue_max: 80          # Upper green hue bound
+    grass_color_sat_min: 40          # Minimum saturation for grass
+    grass_color_sat_max: 255         # Maximum saturation
+    grass_color_val_min: 40          # Minimum brightness
+    grass_color_val_max: 255         # Maximum brightness
+    
+    # Grass height analysis
+    min_grass_height: 0.02           # 2cm minimum detectable height
+    max_grass_height: 0.15           # 15cm maximum expected height
+    cutting_threshold: 0.08          # 8cm height triggers cutting need
+    
+    # Detection parameters
+    grass_coverage_threshold: 0.3    # 30% minimum coverage for valid detection
+    min_grass_area: 1000            # Minimum grass area in pixels
+    gaussian_blur_kernel: 5         # Noise reduction kernel size
+    morphology_kernel_size: 3       # Morphological cleanup kernel
+    
+    # Publishing settings
+    publish_debug_images: true      # Enable debug visualizations
+    detection_frequency: 10.0       # Detection rate in Hz
+    frame_id: "d455_color_optical_frame"
+
+obstacle_detector:
+  ros__parameters:
+    # Detection thresholds
+    min_obstacle_height: 0.10       # 10cm minimum obstacle height
+    max_detection_distance: 10.0    # 10m maximum detection range
+    min_detection_distance: 0.3     # 30cm minimum detection distance
+    ground_plane_threshold: 0.05    # 5cm ground plane tolerance
+    
+    # Clustering parameters
+    cluster_tolerance: 0.05         # 5cm clustering tolerance
+    min_cluster_size: 50           # Minimum points per cluster
+    max_cluster_size: 5000         # Maximum points per cluster
+    
+    # Obstacle classification thresholds
+    tree_height_threshold: 1.0      # 1m height for tree classification
+    rock_aspect_ratio_threshold: 0.8  # Width/height ratio for rocks
+    furniture_size_threshold: 0.5   # Minimum size for furniture detection
+    
+    # Tracking parameters
+    obstacle_timeout: 5.0           # Seconds before removing obstacle
+    position_tolerance: 0.2         # 20cm tolerance for tracking
+    min_detections_for_confirmation: 3  # Confirmations needed
+    
+    # Publishing settings
+    publish_markers: true           # Enable RViz markers
+    publish_debug_images: true      # Enable debug images
+    detection_frequency: 15.0       # Detection rate in Hz
+    frame_id: "d455_color_optical_frame"
+    
+    # Safety parameters
+    safety_buffer_distance: 0.5     # 50cm safety buffer
+    danger_zone_distance: 1.0       # 1m danger zone
+
+# Camera-specific settings for D455
+d455_camera:
+  ros__parameters:
+    # Stream settings optimized for lawn care
+    color_width: 1280
+    color_height: 720
+    color_fps: 30
+    
+    depth_width: 1280
+    depth_height: 720
+    depth_fps: 30
+    
+    # Hardware settings for outdoor use
+    laser_power: 360.0             # Maximum laser power for sunlight
+    emitter_enabled: true
+    
+    # Post-processing filters for grass surfaces
+    decimation_filter.enable: true
+    decimation_filter.filter_magnitude: 2
+    
+    temporal_filter.enable: true
+    temporal_filter.filter_smooth_alpha: 0.4
+    temporal_filter.filter_smooth_delta: 20
+    temporal_filter.holes_fill: 3
+    
+    spatial_filter.enable: true
+    spatial_filter.filter_magnitude: 2
+    spatial_filter.filter_smooth_alpha: 0.5
+    spatial_filter.filter_smooth_delta: 20
+    spatial_filter.holes_fill: 0
+    
+    hole_filling_filter.enable: true
+    hole_filling_filter.holes_fill: 1
+
+# Environmental adaptation settings
+weather_monitor:
+  ros__parameters:
+    # Light level thresholds
+    min_light_level: 0.2           # Minimum light for operation
+    max_light_level: 0.9           # Maximum light before adjustment
+    
+    # Weather conditions
+    rain_detection_threshold: 0.1   # Threshold for rain detection
+    wind_speed_threshold: 15.0      # Maximum wind speed (km/h)
+    
+    # Seasonal adjustments
+    spring_growth_factor: 1.2       # Growth rate multiplier in spring
+    summer_growth_factor: 1.0       # Normal growth rate in summer
+    fall_growth_factor: 0.8         # Reduced growth in fall
+    winter_growth_factor: 0.3       # Minimal growth in winter
+
+# Navigation and path planning
+lawn_navigation:
+  ros__parameters:
+    # Planning parameters
+    planning_frequency: 2.0         # Path replanning frequency (Hz)
+    goal_tolerance: 0.1            # Goal position tolerance (m)
+    path_resolution: 0.05          # Path resolution (m)
+    
+    # Safety parameters
+    obstacle_buffer: 0.8           # Buffer around obstacles (m)
+    max_speed: 1.0                # Maximum movement speed (m/s)
+    max_acceleration: 0.5          # Maximum acceleration (m/s²)
+    
+    # Mowing pattern parameters
+    stripe_width: 0.4              # Width of mowing stripes (m)
+    stripe_overlap: 0.1            # Overlap between stripes (m)
+    turn_radius: 0.5               # Minimum turning radius (m)

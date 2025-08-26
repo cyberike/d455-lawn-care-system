@@ -1,0 +1,36 @@
+# Service to calibrate grass detection parameters
+
+# Request
+bool auto_calibrate      # Whether to automatically calibrate based on current view
+sensor_msgs/Image sample_image  # Optional: specific image to calibrate with
+geometry_msgs/Polygon grass_region  # User-defined grass region in image (optional)
+string grass_type       # Expected grass type for calibration
+float32 lighting_condition  # Current lighting (0=dark, 1=bright)
+
+# Manual parameter overrides (optional)
+bool use_manual_params  # Whether to use the manual parameters below
+int32 hue_min          # HSV hue minimum (0-179) 
+int32 hue_max          # HSV hue maximum (0-179)
+int32 saturation_min   # HSV saturation minimum (0-255)
+int32 saturation_max   # HSV saturation maximum (0-255)
+int32 value_min        # HSV value minimum (0-255)
+int32 value_max        # HSV value maximum (0-255)
+
+---
+# Response
+bool success           # Whether calibration succeeded
+string message        # Calibration result message
+
+# Calibrated parameters
+int32 calibrated_hue_min        # Optimal HSV hue minimum
+int32 calibrated_hue_max        # Optimal HSV hue maximum  
+int32 calibrated_saturation_min # Optimal HSV saturation minimum
+int32 calibrated_saturation_max # Optimal HSV saturation maximum
+int32 calibrated_value_min      # Optimal HSV value minimum
+int32 calibrated_value_max      # Optimal HSV value maximum
+
+# Quality metrics
+float32 detection_accuracy      # Estimated detection accuracy (0-1)
+float32 false_positive_rate    # Estimated false positive rate (0-1)
+float32 coverage_percentage    # Percentage of grass pixels detected
+sensor_msgs/Image debug_image  # Debug image showing detection results

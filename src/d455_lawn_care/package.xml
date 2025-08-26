@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>d455_lawn_care</name>
+  <version>1.0.0</version>
+  <description>ROS 2 package for Intel RealSense D455 lawn care applications including grass detection, obstacle avoidance, and autonomous mowing support</description>
+  
+  <maintainer email="you@example.com">Lawn Care Developer</maintainer>
+  <license>MIT</license>
+  <url type="website">https://github.com/your_username/d455_lawn_care</url>
+  <url type="bugtracker">https://github.com/your_username/d455_lawn_care/issues</url>
+  <url type="repository">https://github.com/your_username/d455_lawn_care</url>
+
+  <author>Lawn Care Developer</author>
+
+  <!-- Build tool dependencies -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Core ROS 2 dependencies -->
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>image_transport</depend>
+  
+  <!-- Computer Vision and Image Processing -->
+  <depend>cv_bridge</depend>
+  
+  <!-- Visualization -->
+  <depend>visualization_msgs</depend>
+  
+  <!-- Message Generation -->
+  <depend>rosidl_default_generators</depend>
+  <depend>rosidl_default_runtime</depend>
+  
+  <!-- Launch Files -->
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
+  <depend>launch_xml</depend>
+  
+  <!-- Testing -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_cmake_pytest</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <!-- Python Dependencies (runtime) - matching setup.py install_requires -->
+  <exec_depend>python3-opencv</exec_depend>        <!-- opencv-python>=4.5.0 -->
+  <exec_depend>python3-numpy</exec_depend>         <!-- numpy>=1.19.0 -->
+  <exec_depend>python3-scipy</exec_depend>         <!-- scipy>=1.7.0 -->
+  <exec_depend>python3-matplotlib</exec_depend>    <!-- matplotlib>=3.3.0 -->
+  <exec_depend>python3-sklearn</exec_depend>       <!-- scikit-learn>=1.0.0 -->
+  <exec_depend>python3-yaml</exec_depend>          <!-- PyYAML>=5.4.0 -->
+  <exec_depend>python3-pip</exec_depend>
+
+  <!-- Additional lawn care specific dependencies -->
+  <exec_depend>python3-filterpy</exec_depend>      <!-- filterpy>=1.4.5 -->
+  <exec_depend>python3-shapely</exec_depend>       <!-- shapely>=1.8.0 -->
+  <exec_depend>python3-pil</exec_depend>           <!-- pillow>=8.0.0 -->
+  <exec_depend>python3-skimage</exec_depend>       <!-- scikit-image>=0.18.0 -->
+  
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+  
+  <member_of_group>rosidl_interface_packages</member_of_group>
+</package>

@@ -1,0 +1,48 @@
+# ROS 2 Build artifacts
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# ROS bag files
+*.bag
+*.mcap
+
+# Temporary files
+*.tmp
+*.log
+/tmp/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+*.png
+*.jpg
+*.mp4
+*.avi
+
+# Performance test results
+parity_test_*.json
+parity_analysis_*.json
+coverage_patterns_*.png
+
+# ROS launch logs
+nohup.out
