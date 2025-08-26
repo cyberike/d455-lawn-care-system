@@ -16,6 +16,8 @@ venv/
 # ROS bag files
 *.bag
 *.mcap
+*.db3
+lawn_bag/
 
 # Temporary files
 *.tmp
