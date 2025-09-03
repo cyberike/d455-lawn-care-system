@@ -1,0 +1,17 @@
+# Service for laser targeting calibration
+
+# Request
+bool perform_servo_calibration    # Calibrate servo positioning
+bool perform_power_calibration    # Calibrate laser power output
+bool perform_safety_check        # Run complete safety check
+sensor_msgs/Image test_image     # Optional test image for targeting accuracy
+
+---
+
+# Response  
+bool success
+string message
+float32 targeting_accuracy_mm
+float32 power_calibration_factor
+string[] calibration_results
+string[] safety_check_results

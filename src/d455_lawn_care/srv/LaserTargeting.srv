@@ -1,0 +1,17 @@
+# Service for manual laser weed targeting
+
+# Request
+float32 target_x          # Target X coordinate in pixels
+float32 target_y          # Target Y coordinate in pixels  
+float32 power_percentage  # Laser power percentage (0-100)
+int32 exposure_time_ms    # Exposure time in milliseconds
+bool safety_override     # Override safety checks (use with caution)
+
+---
+
+# Response
+bool success
+string message
+float32 execution_time_ms
+float32 actual_power_used
+geometry_msgs/Point32 actual_target_position

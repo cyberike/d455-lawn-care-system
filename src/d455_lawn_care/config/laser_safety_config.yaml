@@ -1,0 +1,60 @@
+# Laser Weed Incisor Safety Configuration
+# CRITICAL SAFETY PARAMETERS - MODIFY WITH EXTREME CAUTION
+
+# Laser Specifications
+laser_specifications:
+  max_power_watts: 5.0              # Maximum laser power output
+  wavelength_nm: 450                # Blue laser wavelength
+  beam_diameter_mm: 2.5            # Focused beam diameter
+  safety_class: "Class 4"          # Laser safety classification
+  exposure_time_ms: 200             # Default exposure time per weed
+
+# Safety Zone Configuration
+safety_zones:
+  operator_exclusion_radius_m: 5.0  # Minimum operator distance
+  laser_safety_zone_radius_m: 2.0   # Active laser safety zone
+  emergency_stop_range_m: 1.0       # Emergency stop trigger distance
+  
+# Temperature Monitoring
+temperature_limits:
+  max_ambient_temperature_c: 50.0   # Maximum ambient temperature
+  max_laser_temperature_c: 70.0     # Maximum laser module temperature
+  temperature_warning_threshold_c: 40.0
+  
+# Power Control
+power_control:
+  default_power_percentage: 80.0    # Default power level (80% of max)
+  minimum_power_percentage: 10.0    # Minimum effective power
+  maximum_power_percentage: 100.0   # Maximum allowed power
+  power_ramp_time_ms: 100          # Time to ramp power up/down
+  
+# Timing Controls
+timing_controls:
+  max_continuous_fire_time_ms: 500  # Maximum continuous firing time
+  cooldown_period_ms: 1000         # Mandatory cooldown between fires
+  safety_interlock_timeout_ms: 5000 # Safety interlock response timeout
+  
+# Detection and Targeting
+targeting_parameters:
+  min_weed_confidence: 0.7          # Minimum detection confidence for targeting
+  max_weed_size_pixels: 5000        # Maximum weed size to target
+  targeting_precision_mm: 1.0       # Targeting accuracy requirement
+  max_targeting_queue_size: 50      # Maximum queued targets
+  
+# Emergency Procedures
+emergency_controls:
+  auto_emergency_stop: true         # Enable automatic emergency stop
+  emergency_stop_enabled: true      # Master emergency stop enable
+  safety_confirmation_required: true # Require operator safety confirmation
+  
+# Monitoring and Logging
+monitoring:
+  safety_check_frequency_hz: 10.0   # Safety monitoring frequency
+  log_all_targeting_events: true    # Log every targeting event
+  enable_safety_warnings: true      # Enable safety warning system
+  
+# Environmental Conditions
+environmental_limits:
+  max_wind_speed_ms: 5.0            # Maximum wind speed for operation
+  min_visibility_m: 10.0            # Minimum visibility requirement
+  max_humidity_percent: 85.0        # Maximum humidity for safe operation

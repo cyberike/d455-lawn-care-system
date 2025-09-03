@@ -20,9 +20,13 @@ setup(
          glob(os.path.join('config', '*.yaml'))),
         (os.path.join('share', package_name, 'config'), 
          glob(os.path.join('config', '*.yml'))),
+        (os.path.join('share', package_name, 'config'), 
+         glob(os.path.join('config', '*.rviz'))),
         # URDF and meshes
         (os.path.join('share', package_name, 'urdf'), 
-         glob(os.path.join('urdf', '*'))),
+         glob(os.path.join('urdf', '*.urdf'))),
+        (os.path.join('share', package_name, 'urdf'), 
+         glob(os.path.join('urdf', '*.xacro'))),
         (os.path.join('share', package_name, 'meshes'), 
          glob(os.path.join('meshes', '*'))),
         # Gazebo worlds
@@ -62,8 +66,18 @@ setup(
             'costmap_generator = d455_lawn_care.costmap_generator:main',
             'coverage_path_planner = d455_lawn_care.coverage_path_planner:main',
             'simple_coverage_planner = d455_lawn_care.simple_coverage_planner:main',
+            'pointcloud_costmap = d455_lawn_care.pointcloud_costmap:main',
+            'fused_costmap_generator = d455_lawn_care.fused_costmap_generator:main',
+            'lawn_navigation_controller = d455_lawn_care.lawn_navigation_controller:main',
+            'simple_navigation_demo = d455_lawn_care.simple_navigation_demo:main',
+            
+            # Laser weed control system
+            'laser_weed_incisor = d455_lawn_care.laser_weed_incisor:main',
+            'laser_weed_incisor_simple = d455_lawn_care.laser_weed_incisor_simple:main',
+            'laser_safety_monitor = d455_lawn_care.laser_safety_monitor:main',
             
             # Future nodes (commented out until implemented)
+            # 'laser_control_gui = d455_lawn_care.laser_control_gui:main',
             # 'ground_plane_estimator = d455_lawn_care.ground_plane_estimator:main',
             # 'lawn_navigation = d455_lawn_care.lawn_navigation:main',
             # 'mowing_pattern_planner = d455_lawn_care.mowing_pattern_planner:main',
